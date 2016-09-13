@@ -1,0 +1,26 @@
+swagger: 2.0
+info:
+  description: Example of integration swagger with Rails
+  version: 1.0.0
+  title: Rails 5 Swagger
+schemes:
+  - http
+tags:
+  - name: events
+paths:
+  /events:
+    post:
+      tags:
+        - events
+      description: Create an event
+      produces:
+        - application/json
+      parameters:
+        - name: event[name]
+          in: formData
+          required: true
+          type: string
+      response:
+        - 200:
+            description: Event created
+
