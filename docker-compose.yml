@@ -1,0 +1,16 @@
+version: '2'
+services:
+  web:
+    build: .
+    ports:
+     - "4000:3000"
+    volumes:
+     - .:/var/www/app
+    depends_on:
+     - swagger_ui
+  swagger_ui:
+    image: schickling/swagger-ui
+    ports:
+     - "4001:80"
+    environment:
+     - API_URL=http://localhost:4000/swagger.yaml
